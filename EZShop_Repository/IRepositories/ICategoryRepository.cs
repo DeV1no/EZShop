@@ -4,4 +4,5 @@ namespace EZShop_Repository.IRepositories;
 
 public interface ICategoryRepository : IGenericRepository<Category>
 {
+   
 }

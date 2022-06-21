@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EZShop_Migrations\EZShop_Migrations.csproj" />
     <ProjectReference Include="..\EZShop_Repository\EZShop_Repository.csproj" />
+    <ProjectReference Include="..\EZShop_Service\EZShop_Service.csproj" />
   </ItemGroup>
 
 </Project>

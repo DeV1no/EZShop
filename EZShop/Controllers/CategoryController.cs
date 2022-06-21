@@ -1,5 +1,8 @@
 ﻿using EZShop_Repository.IConfiguration;
+using EZShop_Service.DataTransferObjects.Category;
+using EZShop_Service.IContracts;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace EZShop.Controllers;
 
@@ -7,14 +10,22 @@ namespace EZShop.Controllers;
 [Route("[controller]")]
 public class CategoryController : ControllerBase
 {
-    private readonly IUnitOfWork _unitOfWork;
+    private readonly ICategoryService _categoryService;
 
-    public CategoryController(IUnitOfWork unitOfWork)
+    public CategoryController(ICategoryService categoryService)
     {
-        _unitOfWork = unitOfWork;
+        _categoryService = categoryService;
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetItem(int id)
-        => Ok(await _unitOfWork.CategoryRepository.GetById(id));
+    public async Task<IActionResult> GetCategory(int id)
+        => Ok(await _categoryService.GetCategoryById(id));
+
+    [HttpPost]
+    public async Task<IActionResult> AddCategory([FromBody] CategorySaveDto model)
+        => Ok(await _categoryService.AddCategory(model));
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateCategory([FromBody] CategorySaveDto model)
+        => Ok(await _categoryService.UpdateCategory(model));
 }
