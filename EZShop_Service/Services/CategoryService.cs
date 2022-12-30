@@ -37,4 +37,8 @@ public class CategoryService : ICategoryService
         category = _mapper.Map<Category>(category);
         return await _unitOfWork.CategoryRepository.Upsert(category);
     }
+
+    public async Task<bool> DeleteCategory(int id)
+        => await _unitOfWork.CategoryRepository.Delete(id);
+
 }

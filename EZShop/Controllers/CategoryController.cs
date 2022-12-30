@@ -25,7 +25,11 @@ public class CategoryController : ControllerBase
     public async Task<IActionResult> AddCategory([FromBody] CategorySaveDto model)
         => Ok(await _categoryService.AddCategory(model));
 
-    [HttpPost]
+    [HttpPut]
     public async Task<IActionResult> UpdateCategory([FromBody] CategorySaveDto model)
         => Ok(await _categoryService.UpdateCategory(model));
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteCategory(int id)
+        => Ok(await _categoryService.DeleteCategory(id));
 }
