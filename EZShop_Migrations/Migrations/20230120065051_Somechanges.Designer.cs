@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EZShop_Migrations.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220607171255_initDb")]
-    partial class initDb
+    [Migration("20230120065051_Somechanges")]
+    partial class Somechanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,15 +80,15 @@ namespace EZShop_Migrations.Migrations
 
             modelBuilder.Entity("EZShop_DataAccess.ProductCategory", b =>
                 {
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.HasKey("CategoryId");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ProductId");
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("ProductCategories");
                 });

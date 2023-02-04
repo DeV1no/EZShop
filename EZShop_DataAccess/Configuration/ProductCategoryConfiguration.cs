@@ -8,9 +8,15 @@ public class ProductCategoryConfiguration
     {
         // builder.HasKey(x => new { x.CategoryId, x.ProductId });
         builder.HasKey(x => x.CategoryId);
-        builder.HasOne(x => x.Category).WithMany(q => q.ProductCategories)
-            .HasForeignKey(z => z.CategoryId);
-        builder.HasOne(x => x.Product).WithMany(q => q.ProductCategories)
-            .HasForeignKey(z => z.ProductId);
+
+        builder.HasKey(bc => new { bc.ProductId, bc.CategoryId });
+
+        builder.HasOne(bc => bc.Product)
+             .WithMany(b => b.ProductCategories)
+             .HasForeignKey(bc => bc.ProductId);
+
+        builder.HasOne(bc => bc.Category)
+             .WithMany(c => c.ProductCategories)
+             .HasForeignKey(bc => bc.CategoryId);
     }
 }

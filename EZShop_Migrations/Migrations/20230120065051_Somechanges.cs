@@ -4,7 +4,7 @@
 
 namespace EZShop_Migrations.Migrations
 {
-    public partial class initDb : Migration
+    public partial class Somechanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,7 +52,7 @@ namespace EZShop_Migrations.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductCategories", x => x.CategoryId);
+                    table.PrimaryKey("PK_ProductCategories", x => new { x.ProductId, x.CategoryId });
                     table.ForeignKey(
                         name: "FK_ProductCategories_Categories_CategoryId",
                         column: x => x.CategoryId,
@@ -73,9 +73,9 @@ namespace EZShop_Migrations.Migrations
                 column: "ParentCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCategories_ProductId",
+                name: "IX_ProductCategories_CategoryId",
                 table: "ProductCategories",
-                column: "ProductId");
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

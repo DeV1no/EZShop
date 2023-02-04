@@ -16,7 +16,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         _dbSet = _context.Set<T>();
     }
 
-    public virtual async Task<IEnumerable<T?>> All()
+    public virtual async Task<List<T>> All()
         => await _dbSet.ToListAsync();
 
     public virtual async Task<T?> GetById(int id)
