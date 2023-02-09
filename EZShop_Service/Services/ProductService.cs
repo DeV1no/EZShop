@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using EZShop_DataAccess;
 using EZShop_Repository.IConfiguration;
-using EZShop_Service.DataTransferObjects.Category;
 using EZShop_Service.DataTransferObjects.Product;
 using EZShop_Service.IContracts;
 
