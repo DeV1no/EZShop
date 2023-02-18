@@ -3,6 +3,7 @@ using EZShop_DataAccess;
 using EZShop_Repository.IConfiguration;
 using EZShop_Service.DataTransferObjects.Product;
 using EZShop_Service.IContracts;
+using Gridify;
 
 namespace EZShop_Service.Services;
 
@@ -17,6 +18,18 @@ public class ProductService:IProductService
         _mapper = mapper;
     }
 
+
+    public async Task<Paging<ProductListDto>> GetList(GridifyQuery query)
+    {
+      
+     var queryable= await _unitOfWork.ProductRepository
+              .GetList(query);
+     return new Paging<ProductListDto>
+     {
+         Data = _mapper.Map<List<ProductListDto>>(queryable.Data),
+         Count = queryable.Count
+     };
+    }
 
     public async Task<ProductSaveDto> GetProductById(int id)
     {

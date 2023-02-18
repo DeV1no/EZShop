@@ -11,12 +11,13 @@ public class ProductMappings : Profile
         // ProductMappings
         CreateMap<Product, ProductSaveDto>()
             .ForMember(x => x.Products, options => options.MapFrom(MapProductCategory));
-            ;
+           
         CreateMap<ProductSaveDto, Product>()
             .ForMember(x => x.Id, opt => opt.Ignore())
             .ForMember(x => x.ProductCategories, options => options.MapFrom(MapProductCategory));
         CreateMap<ProductCategoriesSaveDto, ProductCategory>()
             .ForMember(x => x.CategoryId, opt => opt.MapFrom(q => q.Id));
+        CreateMap<Product, ProductListDto>();
     }
 
      private static List<ProductCategory> MapProductCategory(ProductSaveDto productSaveDto, Product product)

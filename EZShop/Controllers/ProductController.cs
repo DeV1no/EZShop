@@ -1,5 +1,6 @@
 ﻿using EZShop_Service.DataTransferObjects.Product;
 using EZShop_Service.IContracts;
+using Gridify;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EZShop.Controllers
@@ -14,6 +15,11 @@ namespace EZShop.Controllers
         {
             _productService = productService;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetList([FromQuery] GridifyQuery query)
+            => Ok(await _productService.GetList(query));
+
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetProduct(int id)
