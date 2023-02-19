@@ -1,8 +1,5 @@
-using AutoMapper;
 using EZShop_DataAccess;
 using EZShop_Repository.IConfiguration;
-using EZShop_Repository.IRepositories;
-using EZShop_Repository.Repositories;
 using EZShop_Service.IContracts;
 using EZShop_Service.Mappings;
 using EZShop_Service.Services;

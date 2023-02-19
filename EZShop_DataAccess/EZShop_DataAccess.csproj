@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Gridify" Version="2.8.2" />
     <PackageReference Include="Gridify.EntityFramework" Version="2.8.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
   </ItemGroup>
 
 </Project>
